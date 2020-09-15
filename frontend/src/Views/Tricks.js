@@ -20,11 +20,11 @@ function Tricks() {
 
 	if(load) {
 		return (
-			<ul>
+			<ul className="text-center font-body">
 				{
 					error ? <li>{error}</li>:
 					tricks.map((trick, index) => 
-						<li key={index}>Name:{trick.name}</li>		
+						<li key={index}>Name: {trick.name}</li>		
 				)}
 			</ul>
 		);
