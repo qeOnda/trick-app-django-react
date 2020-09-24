@@ -6,4 +6,5 @@ Original project: https://github.com/qeOnda/trick-app-django
 https://fractalideas.com/blog/making-react-and-django-play-well-together/  
 https://medium.com/javascript-in-plain-english/react-hooks-how-to-use-useeffect-ecea3e90d84f  
 https://github.com/adamwathan/theming-tailwind-demo  
-https://stackoverflow.com/questions/42077532/django-security-and-settings
+https://stackoverflow.com/questions/42077532/django-security-and-settings  
+https://reactjsexample.com/responsive-breakpoints-in-react/
