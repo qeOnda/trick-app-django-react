@@ -4,6 +4,10 @@
 
 @tailwind utilities;
 
+.nav-bar {
+   
+}
+
 .theme-startup {
   --color-bg-primary: #ff73b3;
   --color-bg-secondary: #6f72b9;

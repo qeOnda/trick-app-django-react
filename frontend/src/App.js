@@ -14,13 +14,10 @@ import Add from './Views/Add'
 
 function App() {
   return (
-    <div className='theme-startup'>
+    <div>
     	<Router>
 	    	<Header />
 		    	<div className='bg-primary h-screen'>
-					<Tricks />
-					<Background />
-
 			    	<Switch>
 			    		<Route exact path="/">
 			    			<h1>Welcome to the HOME page</h1>
@@ -37,7 +34,7 @@ function App() {
 			    	</Switch>	
 			    </div>	
     	</Router>
-    </div>
+	</div>
   );
 }
 

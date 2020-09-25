@@ -1,26 +1,52 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { layoutGenerator } from 'react-break'
+import Navigation from './Navigation'
 
-function Header() {
-	return (
-		<header className="border-b p-2 flex justify-between items-center">
-			<div>
-				<span className="font-bold p-8">
+const layout = layoutGenerator({
+  mobile: 0,
+  phablet: 550,
+  tablet: 768,
+  desktop: 992,
+});
+
+
+const OnDesktop = layout.isAtLeast('tablet');
+const Other = layout.isAtMost('phablet');
+
+const Header = () => (
+	<div>	
+		<Other>
+			<header className="border-b p-2 flex justify-between items-center">
+				<span className="font-bold">
 					<Link to='/'>TRICK APP</Link>
 				</span>
-				<span className="p-5">
-					<Link to='/add'>Add Trick</Link>
-				</span>
-				<span className="p-5">
-					<Link to='/categories'>Categories</Link>
-				</span>
-				<span className="p-5">
-					<Link to='/random'>Random</Link>
-				</span>
-			</div>
-		</header>
-	)	
-	
-}
+
+				<Navigation />
+				
+			</header>
+		</Other>
+
+		<OnDesktop>
+			<header className="border-b p-2 flex justify-between items-center">
+				<div>
+					<span className="font-bold p-8">
+						<Link to='/'>TRICK APP</Link>
+					</span>
+					<span className="p-5">
+						<Link to='/add'>Add Trick</Link>
+					</span>
+					<span className="p-5">
+						<Link to='/categories'>Categories</Link>
+					</span>
+					<span className="p-5">
+						<Link to='/random'>Random</Link>
+					</span>
+				</div>
+			</header>
+		</OnDesktop>
+		
+	</div>	
+);	
 
 export default Header;
