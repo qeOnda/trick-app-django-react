@@ -17,18 +17,20 @@ const Other = layout.isAtMost('phablet');
 const Header = () => (
 	<div>	
 		<Other>
-			<header className="border-b p-2 flex justify-between items-center">
-				<span className="font-bold">
-					<Link to='/'>TRICK APP</Link>
-				</span>
+			<div className="theme-startup">
+				<header className="bg-secondary shadow-lg border-b p-2 flex justify-between items-center">
+					<span className="font-bold">
+						<Link to='/'>TRICK APP</Link>
+					</span>
 
-				<Navigation />
-				
-			</header>
+					<Navigation />
+					
+				</header>
+			</div>	
 		</Other>
 
 		<OnDesktop>
-			<header className="border-b p-2 flex justify-between items-center">
+			<header className="bg-default shadow-sm border-b p-2 flex justify-between items-center">
 				<div>
 					<span className="font-bold p-8">
 						<Link to='/'>TRICK APP</Link>

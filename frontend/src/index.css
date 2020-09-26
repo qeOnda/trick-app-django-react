@@ -13,6 +13,7 @@
   --color-bg-secondary: #6f72b9;
   --color-bg-default: #fff;
   --color-bg-inverse: #5255ac;
+  --color-bg-shadow: rgba(0,0,0,0.5);
 
   --color-text-primary: #fff;
   --color-text-secondary: #44467b;

@@ -1813,6 +1813,10 @@ video {
   background-color: var(--color-bg-secondary);
 }
 
+.bg-shadow {
+  background-color: var(--color-bg-shadow);
+}
+
 .hover\:bg-primary:hover {
   background-color: var(--color-bg-primary);
 }
@@ -1821,12 +1825,20 @@ video {
   background-color: var(--color-bg-secondary);
 }
 
+.hover\:bg-shadow:hover {
+  background-color: var(--color-bg-shadow);
+}
+
 .focus\:bg-primary:focus {
   background-color: var(--color-bg-primary);
 }
 
 .focus\:bg-secondary:focus {
   background-color: var(--color-bg-secondary);
+}
+
+.focus\:bg-shadow:focus {
+  background-color: var(--color-bg-shadow);
 }
 
 .bg-none {
@@ -15480,6 +15492,7 @@ video {
   --color-bg-secondary: #6f72b9;
   --color-bg-default: #fff;
   --color-bg-inverse: #5255ac;
+  --color-bg-shadow: rgba(0,0,0,0.5);
   --color-text-primary: #fff;
   --color-text-secondary: #44467b;
   --color-text-default: #373737;
@@ -16731,6 +16744,10 @@ video {
     background-color: var(--color-bg-secondary);
   }
 
+  .sm\:bg-shadow {
+    background-color: var(--color-bg-shadow);
+  }
+
   .sm\:hover\:bg-primary:hover {
     background-color: var(--color-bg-primary);
   }
@@ -16739,12 +16756,20 @@ video {
     background-color: var(--color-bg-secondary);
   }
 
+  .sm\:hover\:bg-shadow:hover {
+    background-color: var(--color-bg-shadow);
+  }
+
   .sm\:focus\:bg-primary:focus {
     background-color: var(--color-bg-primary);
   }
 
   .sm\:focus\:bg-secondary:focus {
     background-color: var(--color-bg-secondary);
+  }
+
+  .sm\:focus\:bg-shadow:focus {
+    background-color: var(--color-bg-shadow);
   }
 
   .sm\:bg-none {
@@ -31597,6 +31622,10 @@ video {
     background-color: var(--color-bg-secondary);
   }
 
+  .md\:bg-shadow {
+    background-color: var(--color-bg-shadow);
+  }
+
   .md\:hover\:bg-primary:hover {
     background-color: var(--color-bg-primary);
   }
@@ -31605,12 +31634,20 @@ video {
     background-color: var(--color-bg-secondary);
   }
 
+  .md\:hover\:bg-shadow:hover {
+    background-color: var(--color-bg-shadow);
+  }
+
   .md\:focus\:bg-primary:focus {
     background-color: var(--color-bg-primary);
   }
 
   .md\:focus\:bg-secondary:focus {
     background-color: var(--color-bg-secondary);
+  }
+
+  .md\:focus\:bg-shadow:focus {
+    background-color: var(--color-bg-shadow);
   }
 
   .md\:bg-none {
@@ -46463,6 +46500,10 @@ video {
     background-color: var(--color-bg-secondary);
   }
 
+  .lg\:bg-shadow {
+    background-color: var(--color-bg-shadow);
+  }
+
   .lg\:hover\:bg-primary:hover {
     background-color: var(--color-bg-primary);
   }
@@ -46471,12 +46512,20 @@ video {
     background-color: var(--color-bg-secondary);
   }
 
+  .lg\:hover\:bg-shadow:hover {
+    background-color: var(--color-bg-shadow);
+  }
+
   .lg\:focus\:bg-primary:focus {
     background-color: var(--color-bg-primary);
   }
 
   .lg\:focus\:bg-secondary:focus {
     background-color: var(--color-bg-secondary);
+  }
+
+  .lg\:focus\:bg-shadow:focus {
+    background-color: var(--color-bg-shadow);
   }
 
   .lg\:bg-none {
@@ -61329,6 +61378,10 @@ video {
     background-color: var(--color-bg-secondary);
   }
 
+  .xl\:bg-shadow {
+    background-color: var(--color-bg-shadow);
+  }
+
   .xl\:hover\:bg-primary:hover {
     background-color: var(--color-bg-primary);
   }
@@ -61337,12 +61390,20 @@ video {
     background-color: var(--color-bg-secondary);
   }
 
+  .xl\:hover\:bg-shadow:hover {
+    background-color: var(--color-bg-shadow);
+  }
+
   .xl\:focus\:bg-primary:focus {
     background-color: var(--color-bg-primary);
   }
 
   .xl\:focus\:bg-secondary:focus {
     background-color: var(--color-bg-secondary);
+  }
+
+  .xl\:focus\:bg-shadow:focus {
+    background-color: var(--color-bg-shadow);
   }
 
   .xl\:bg-none {
