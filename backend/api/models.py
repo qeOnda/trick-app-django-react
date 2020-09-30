@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 
 
@@ -15,3 +16,6 @@ class To_learn(models.Model):
 	video = models.URLField()
 	def __str__(self):
 		return self.name
+
+class User(AbstractUser):
+	pass

@@ -11,16 +11,18 @@ import Header from './Components/Header'
 import Category from './Views/Category'
 import Random from './Views/Random'
 import Add from './Views/Add'
+import Login from './Components/Login'
 
 function App() {
   return (
     <div>
     	<Router>
 	    	<Header />
-		    	<div className='bg-primary h-screen'>
+		    	<div>
 			    	<Switch>
 			    		<Route exact path="/">
 			    			<h1>Welcome to the HOME page</h1>
+			    			<Tricks />
 			    		</Route>
 			    		<Route path="/add">
 			    			<Add />
@@ -30,6 +32,9 @@ function App() {
 			    		</Route>
 			    		<Route path="/random">
 			    			<Random />
+			    		</Route>
+			    		<Route path="/login/">
+			    			<Login />
 			    		</Route>
 			    	</Switch>	
 			    </div>	

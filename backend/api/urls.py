@@ -1,6 +1,6 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter 
-
+from rest_framework_simplejwt import views as jwt_views
 from . import views
 
 
@@ -10,6 +10,12 @@ router.register(r'cats', views.CatViewSet)
 
 urlpatterns = [
 	path(r'api/', include(router.urls)),
+	path('api/user/create/', views.UserCreate.as_view(), name="create_user"),
+	path('api/token/obtain/', jwt_views.TokenObtainPairView.as_view(), name='token_create'),  # override sjwt stock token
+	path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
+	path('hello/', views.HelloWorldView.as_view(), name='hello_world')
+
+
 ]
 
 urlpatterns += [

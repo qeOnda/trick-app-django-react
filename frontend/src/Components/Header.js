@@ -45,6 +45,9 @@ const Header = () => (
 						<Link to='/random'>Random</Link>
 					</span>
 				</div>
+				<span className="items-left">
+					<Link to='/login/'>Login</Link>
+				</span>
 			</header>
 		</OnDesktop>
 		

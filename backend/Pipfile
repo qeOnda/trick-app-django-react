@@ -13,6 +13,8 @@ psycopg2-binary = "*"
 waitress = "*"
 whitenoise = "*"
 requests = "*"
+djangorestframework-jwt = "*"
+djangorestframework-simplejwt = "*"
 
 [requires]
 python_version = "3.8"
