@@ -36,7 +36,7 @@ const Header = () => {
 			<Other>
 				<div className="theme-startup">
 					<header className="bg-secondary shadow-lg border-b p-2 flex justify-between items-center">
-						<span className="font-bold">
+						<span className="px-6 font-bold">
 							<Link to='/'>TRICK APP</Link>
 						</span>
 
@@ -47,41 +47,41 @@ const Header = () => {
 			</Other>
 
 			<OnDesktop>
-				<header className="bg-default shadow-sm border-b p-2 flex justify-between items-center">
-					<div>
-						<span className="font-bold p-8">
-							<Link to='/'>TRICK APP</Link>
-						</span>
-						<span className="p-5">
-							<Link to='/add'>Add Trick</Link>
-						</span>
-						<span className="p-5">
-							<Link to='/categories'>Categories</Link>
-						</span>
-						<span className="p-5">
-							<Link to='/random'>Random</Link>
-						</span>
-						<span className="p-5">
-							<Link to='/hello'>Hello</Link>
-						</span>
-					</div>
-					
 					{currentUser ? (
-						<span className="items-left">
-							<Link to='/'>{currentUser.user_id}</Link>
-							<a href='/' onClick={logOut}>Logout</a>
-						</span>				
+						<header className="bg-default shadow-sm border-b p-2 flex justify-between">
+							<div>	
+								<span className="px-6 font-bold">
+									<Link to='/'>TRICK APP</Link>
+								</span>
+								<span className="px-4 space-x-8">
+									<Link to='/add'>Add</Link>
+									<Link to='/categories'>Categories</Link>
+									<Link to='/random'>Random</Link>
+									<Link to='/hello'>Hello</Link>
+								</span>
+							</div>	
+							<div className="px-4 items-left">
+								<Link to='/'>{currentUser.user_id}</Link>
+								<a href='/' onClick={logOut}>Logout</a>
+							</div>
+						</header>					
 					) : (
-						<div className="items-left space-x-6">
-							<span>
-								<Link to='/Register'>Register</Link>
-							</span>
-							<span>	
-								<Link to='/login'>Login</Link>
-							</span>
-						</div>
+						<header className="bg-default shadow-sm border-b p-2 flex justify-between">
+							<div>
+								<span className="px-6 font-bold">
+									<Link to='/'>TRICK APP</Link>
+								</span>
+							</div>
+							<div className="px-4 items-left space-x-6">	
+								<span>
+									<Link to='/Register'>Register</Link>
+								</span>
+								<span>	
+									<Link to='/login'>Login</Link>
+								</span>
+							</div>	
+						</header>
 					)}
-				</header>
 			</OnDesktop>	
 		</div>	
 	)
