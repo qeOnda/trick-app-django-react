@@ -11,9 +11,9 @@ function Login(){
 		e.preventDefault(usernameField.value, passwordField.value);
 		//api.login(usernameField.value, passwordField.value)
 		try {
-			const response = axiosInstance.post('api/token/obtain/', {
-				Username: usernameField.value,
-				Password: passwordField.value
+			const response = axiosInstance.post('token/obtain/', {
+				username: usernameField.value,
+				password: passwordField.value
 			});
 			axiosInstance.defaults.headers['Authorization'] = "JWT " + response.data.access;
 			localStorage.setItem('access_token', response.data.access);

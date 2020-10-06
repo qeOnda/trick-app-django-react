@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import axiosInstance from "../Components/axiosApi";
 
 function Tricks() {
 	const [tricks, setTricks] = useState([]);
@@ -7,7 +8,7 @@ function Tricks() {
 	const [error, setError] = useState('');
 
 	useEffect(() => {
-		axios.get('http://localhost:8000/api/tricks/?format=json')
+		axiosInstance.get('http://localhost:8000/api/tricks/?format=json')
 			.then(response => {
 				setTricks(response.data);
 				setLoad(true);

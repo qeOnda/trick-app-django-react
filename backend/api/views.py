@@ -1,9 +1,8 @@
 from rest_framework import viewsets, permissions, status
 from rest_framework.views import APIView 
 from rest_framework.response import Response 
-from rest_framework.permissions import IsAuthenticated 
 from rest_framework_simplejwt.views import TokenObtainPairView
-from .serializers import UserSerializer
+from .serializers import UserSerializer, MyTokenObtainPairSerializer
 
 
 
@@ -25,6 +24,7 @@ class LearnViewSet(viewsets.ModelViewSet):
 
 class UserCreate(APIView):
 	permission_classes = [permissions.AllowAny]
+	authentication_classes = ()
 
 	def post(self, request, format='json'):
 		serializer = UserSerializer(data=request.data)
@@ -36,8 +36,14 @@ class UserCreate(APIView):
 		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)		
 
 class HelloWorldView(APIView):
+	permission_classes = (permissions.IsAuthenticated,)
+	
 	def get(self, request):
 		return Response(data={"hello":"world"}, status=status.HTTP_200_OK)
+
+class ObtainTokenPairWithColorView(TokenObtainPairView):
+    permission_classes = [permissions.AllowAny,]
+    serializer_class = MyTokenObtainPairSerializer
 
 
 

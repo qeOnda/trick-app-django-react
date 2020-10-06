@@ -10,8 +10,10 @@ import Background from './Components/Background'
 import Header from './Components/Header'
 import Category from './Views/Category'
 import Random from './Views/Random'
+import Register from './Views/Register'
 import Add from './Views/Add'
-import Login from './Components/Login'
+import Log from './Components/Log'
+import Hello from './Components/Hello'
 
 function App() {
   return (
@@ -33,8 +35,14 @@ function App() {
 			    		<Route path="/random">
 			    			<Random />
 			    		</Route>
-			    		<Route path="/login/">
-			    			<Login />
+			    		<Route path="/hello">
+			    			<Hello />
+			    		</Route>
+			    		<Route path="/login">
+			    			<Log />
+			    		</Route>
+			    		<Route path="/register">
+			    			<Register />
 			    		</Route>
 			    	</Switch>	
 			    </div>	

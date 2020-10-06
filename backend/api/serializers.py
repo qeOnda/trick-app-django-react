@@ -10,9 +10,10 @@ class CategorySerializer(serializers.ModelSerializer):
 
 class ToLearnSerializer(serializers.ModelSerializer):
 	cat_name = serializers.ReadOnlyField(source='cats.name')
+	user_name = serializers.ReadOnlyField(source='user.username')
 	class Meta:
 		model = To_learn
-		fields = ('id', 'name', 'learned', 'cat_name', 'cats', 'video')
+		fields = ('id', 'user', 'name', 'user_name', 'learned', 'cat_name', 'cats', 'video')
 
 class UserSerializer(serializers.ModelSerializer):
 	email = serializers.EmailField(required=True)
@@ -31,4 +32,15 @@ class UserSerializer(serializers.ModelSerializer):
 			instance.set_password(password)
 		instance.save()
 		return instance
+
+class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
+
+    @classmethod
+    def get_token(cls, user):
+        token = super(MyTokenObtainPairSerializer, cls).get_token(user)
+
+        # Add custom claims
+        token['name'] = user.username
+        return token		
+
 

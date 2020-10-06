@@ -13,7 +13,7 @@ urlpatterns = [
 	path('api/user/create/', views.UserCreate.as_view(), name="create_user"),
 	path('api/token/obtain/', jwt_views.TokenObtainPairView.as_view(), name='token_create'),  # override sjwt stock token
 	path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
-	path('hello/', views.HelloWorldView.as_view(), name='hello_world')
+	path('api/hello/', views.HelloWorldView.as_view(), name='hello_world')
 
 
 ]
