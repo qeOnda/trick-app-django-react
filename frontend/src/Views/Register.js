@@ -3,6 +3,7 @@ import axiosInstance from "../Components/axiosApi";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
+import { history, withRouter } from 'react-router-dom';
 
 
 
@@ -48,7 +49,10 @@ const Register = (props) => {
 				username: username,
 				password: password,
 				email: email,
-			})
+			}).then(
+				props.history.push("/"),
+				window.location.reload()	
+			)
 		}
 	}		
 
@@ -104,4 +108,4 @@ const Register = (props) => {
 	)
 }
 
-export default Register;
+export default withRouter(Register);

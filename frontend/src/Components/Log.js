@@ -3,8 +3,7 @@ import React, { useState, useRef } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
-import { history } from 'react-router-dom';
-import { withRouter } from 'react-router-dom';
+import { history, withRouter } from 'react-router-dom';
 
 import AuthService from "../Services/auth.service";
 import authHeader from "../Services/auth-header";
@@ -58,6 +57,8 @@ const Log = (props) => {
 						axiosInstance.defaults.headers['Authorization'] = "JWT " + response.data.access;
 						localStorage.setItem('access_token', JSON.stringify(response.data.access));
 						localStorage.setItem('refresh_token', JSON.stringify(response.data.refresh));
+						props.history.push("/");
+						window.location.reload();	
 					}
 			})
 		}	
