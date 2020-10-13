@@ -5,7 +5,7 @@ import {
 	Route,
 	Link
 } from "react-router-dom";
-import Tricks from './Views/Tricks'
+import Home from './Views/Home'
 import Background from './Components/Background'
 import Header from './Components/Header'
 import Category from './Views/Category'
@@ -23,8 +23,7 @@ function App() {
 		    	<div>
 			    	<Switch>
 			    		<Route exact path="/">
-			    			<h1>Welcome to the HOME page</h1>
-			    			<Tricks />
+			    			<Home />
 			    		</Route>
 			    		<Route path="/add">
 			    			<Add />
