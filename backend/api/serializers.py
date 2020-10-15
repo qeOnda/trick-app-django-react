@@ -1,19 +1,16 @@
 from rest_framework import serializers
-from .models import Category, To_learn, User
+from .models import To_learn, User #, Category
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 
-class CategorySerializer(serializers.ModelSerializer):
-	class Meta:
-		model = Category
-		fields = '__all__'
 
 class ToLearnSerializer(serializers.ModelSerializer):
-	cat_name = serializers.ReadOnlyField(source='cats.name')
 	user_name = serializers.ReadOnlyField(source='user.username')
+	#category = serializers.CharField(source='get_cats_display')
 	class Meta:
 		model = To_learn
-		fields = ('id', 'user', 'name', 'user_name', 'learned', 'cat_name', 'cats', 'video')
+		fields = ('id', 'user', 'name', 'user_name', 'learned', 'cats', 'video')
+
 
 class UserSerializer(serializers.ModelSerializer):
 	email = serializers.EmailField(required=True)
@@ -32,15 +29,9 @@ class UserSerializer(serializers.ModelSerializer):
 			instance.set_password(password)
 		instance.save()
 		return instance
+		
 
-class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
-
-    @classmethod
-    def get_token(cls, user):
-        token = super(MyTokenObtainPairSerializer, cls).get_token(user)
-
-        # Add custom claims
-        token['name'] = user.username
-        return token		
-
-
+# class CategorySerializer(serializers.ModelSerializer):
+# 	class Meta:
+# 		model = Category
+# 		fields = '__all__'

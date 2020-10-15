@@ -22,7 +22,7 @@ const Add = (props) => {
 	const user = getUser()
 
 	const [name, setName] = useState("");
-	// const [cats, setCats] = useState("");
+	const [cats, setCats] = useState("");
 	const [video, setVideo] = useState("");
 	const [owner, setOwner] = useState("");
 
@@ -34,10 +34,10 @@ const Add = (props) => {
 		const trick = e.target.value;
 		setName(trick);
 	};
-	// const onChangeCats = (e) => {
-	// 	const category = e.target.value;
-	// 	setCats(category);
-	// };
+	const onChangeCats = (e) => {
+		const category = e.target.value;
+		setCats(category);
+	};
 	const onChangeVideo = (e) => {
 		const vid = e.target.value;
 		setVideo(vid);
@@ -54,11 +54,11 @@ const Add = (props) => {
 		if (checkBtn.current.context._errors.length === 0) {
 			axiosInstance.post('tricks/', {
 				name: name,
-				// cats: cats,
+				cats: cats,
 				video: video,
 				user: user.user_id
 			}).then(
-				props.history.push("/add"),
+				props.history.push("/"),
 				window.location.reload(),
 			)
 			.catch(error => {
@@ -82,6 +82,7 @@ const Add = (props) => {
 					validations={[required]}
 				/>
 			</div>
+			
 			<div className="form-group">
 				<label htmlFor="name">Video URL: </label>
 				<Input
@@ -93,7 +94,16 @@ const Add = (props) => {
 					validations={[required]}
 				/>
 			</div>
-			
+			<div className="form-group">
+				<label htmlFor="name">Category: 
+					<select value={cats} onChange={onChangeCats}>
+						<option value="manual">Manual</option>
+						<option value="slide">Slide</option>
+						<option value="grind">Grind</option>
+						<option value="flip">Flip</option>
+					</select>	
+				</label>
+			</div>
 			<div className="form-group">
 				<button disabled={loading}>
 					<span>Add Trick</span>

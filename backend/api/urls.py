@@ -6,18 +6,14 @@ from . import views
 
 router = DefaultRouter()
 router.register(r'tricks', views.LearnViewSet)
-router.register(r'cats', views.CatViewSet)
+
 
 urlpatterns = [
 	path(r'api/', include(router.urls)),
-	# path('api/trick/', views.TrickList.as_view()),
 	path('api/user/create/', views.UserCreate.as_view(), name="create_user"),
-	path('api/create/', views.TrickCreate.as_view(), name="create_trick"),
 	path('api/token/obtain/', jwt_views.TokenObtainPairView.as_view(), name='token_create'),  # override sjwt stock token
 	path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
 	path('api/hello/', views.HelloWorldView.as_view(), name='hello_world')
-
-
 ]
 
 urlpatterns += [

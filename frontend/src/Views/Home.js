@@ -29,7 +29,7 @@ function Home() {
 					error ? <li>{error}</li>:
 					tricks.filter(trick => trick.user == user.user_id).map(filteredTrick => (
 						<li>
-							{filteredTrick.name} | {filteredTrick.cat_name}
+							{filteredTrick.name} | {filteredTrick.cats}
 						</li>
 					)	
 				)}						
