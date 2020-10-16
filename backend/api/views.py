@@ -6,17 +6,17 @@ from rest_framework.response import Response
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
 from .models import To_learn
-from .serializers import ToLearnSerializer, UserSerializer 
+from .serializers import ToLearnSerializer, UserSerializer, MyTokenObtainPairSerializer 
 
 
 
 class LearnViewSet(viewsets.ModelViewSet):
 	queryset = To_learn.objects.all()
 	serializer_class = ToLearnSerializer
-	# permission_classes = [permissions.IsAuthenticated]	
-	# authentication_classes = [JWTAuthentication]
-	permission_classes = [permissions.AllowAny]
-	authentication_classes = ()
+	permission_classes = [permissions.IsAuthenticated]	
+	authentication_classes = [JWTAuthentication]
+	# permission_classes = [permissions.AllowAny]
+	# authentication_classes = ()
 
 class UserCreate(APIView):
 	permission_classes = [permissions.AllowAny]
@@ -37,6 +37,8 @@ class HelloWorldView(APIView):
 	def get(self, request):
 		return Response(data={"hello":"world"}, status=status.HTTP_200_OK)
 
+class MyTokenObtainPairView(TokenObtainPairView):
+    serializer_class = MyTokenObtainPairSerializer
 
 
 

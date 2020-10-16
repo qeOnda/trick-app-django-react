@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import To_learn, User #, Category
+from .models import To_learn, User 	
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 
@@ -29,6 +29,15 @@ class UserSerializer(serializers.ModelSerializer):
 			instance.set_password(password)
 		instance.save()
 		return instance
+
+class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
+    @classmethod
+    def get_token(cls, user):
+        token = super().get_token(user)
+
+        # Add custom claims
+        token['name'] = user.username
+        return token
 		
 
 # class CategorySerializer(serializers.ModelSerializer):

@@ -21,13 +21,3 @@ class To_learn(models.Model):
 	def __str__(self):
 		return self.name
 
-# class Category(models.Model):
-# 	TYPES = (
-# 		('flip', 'Flip'),
-# 		('grind', 'Grind'),
-# 		('slide', 'Slide'),
-# 		('manual', 'Manual'),
-# 	)
-# 	name = models.CharField(max_length=2, choices=TYPES)
-# 	def __str__(self):
-# 		return self.name
