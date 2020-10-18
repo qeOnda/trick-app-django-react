@@ -16,16 +16,18 @@ const layout = layoutGenerator({
 const OnDesktop = layout.isAtLeast('tablet');
 const Other = layout.isAtMost('phablet');
 
-const Header = () => {
+const Header = ({ setLoadedHeader }) => {
 	const [currentUser, setCurrentUser] = useState(undefined) 
 
 	useEffect(() => {
 		const user = AuthService.getCurrentUser();
-		
+		setTimeout(() => {
+			setLoadedHeader();
+		}, 1000);
 		if (user) {
 			setCurrentUser(user)
 		}	
-	}, [])
+	}, [setLoadedHeader]);
 
 	const logOut = () => {
 		AuthService.logout()

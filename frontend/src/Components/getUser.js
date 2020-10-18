@@ -9,7 +9,7 @@ function getUser() {
 		const user = JSON.parse(rawPayload);
 		return user
 	} else {
-		return ("There was an error. Please sign in.")
+		return null
 	}
 }
 

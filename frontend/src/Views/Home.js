@@ -22,18 +22,28 @@ function Home() {
 			})
 	}, []);
 
+	if(error) {
+		return (
+			<div className="p-3 text-center">
+				<p>{error}</p>
+			</div>	
+		)
+	}
+
 	if(load) {
 		return (
-			<ul className="p-3 text-center">
-				{
-					error ? <li>{error}</li>:
-					tricks.filter(trick => trick.user == user.user_id).map(filteredTrick => (
-						<li>
-							{filteredTrick.name} | {filteredTrick.cats}
-						</li>
-					)	
-				)}						
-			</ul>
+			<div className="p-3 text-center">
+				<h1>Hello, {user.name}!</h1>
+				<ul className="p-3">
+					{
+						tricks.filter(trick => trick.user == user.user_id).map(filteredTrick => (
+							<li>
+								{filteredTrick.name} | {filteredTrick.cats}
+							</li>
+						)	
+					)}						
+				</ul>
+			</div>	
 		)
 	} else {
 		return (
