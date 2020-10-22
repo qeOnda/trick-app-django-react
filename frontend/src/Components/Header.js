@@ -63,7 +63,6 @@ const Header = ({ setLoadedHeader }) => {
 								</span>
 							</div>	
 							<div className="px-4 items-left">
-								<Link to='/'>{currentUser.user_id}</Link>
 								<a href='/' onClick={logOut}>Logout</a>
 							</div>
 						</header>					
@@ -76,7 +75,7 @@ const Header = ({ setLoadedHeader }) => {
 							</div>
 							<div className="px-4 items-left space-x-6">	
 								<span>
-									<Link to='/Register'>Register</Link>
+									<Link to='/register'>Register</Link>
 								</span>
 								<span>	
 									<Link to='/login'>Login</Link>

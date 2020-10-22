@@ -15,8 +15,7 @@ class LearnViewSet(viewsets.ModelViewSet):
 	serializer_class = ToLearnSerializer
 	permission_classes = [permissions.IsAuthenticated]	
 	authentication_classes = [JWTAuthentication]
-	# permission_classes = [permissions.AllowAny]
-	# authentication_classes = ()
+	
 
 class UserCreate(APIView):
 	permission_classes = [permissions.AllowAny]

@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import getUser from '../Services/getUser'
 import axiosInstance from "../Services/axiosApi";
+import getUser from '../Services/getUser'
 import Loading from '../Components/Loading'
 
-function Home() {
+function Grind() {
 	const user = getUser()
 
 	const [tricks, setTricks] = useState([]);
 	const [load, setLoad] = useState(false);
-	const [error, setError] = useState('');
 
 	useEffect(() => {
 		axiosInstance.get('tricks/?format=json')
@@ -16,19 +15,7 @@ function Home() {
 				setTricks(response.data);
 				setLoad(true);
 			})
-			.catch(error => {
-				setError(error);
-				setLoad(true)
-			})
 	}, []);
-
-	if(error) {
-		return (
-			<div className="p-3 text-center">
-				<p>{error}</p>
-			</div>	
-		)
-	}
 
 	if(load) {
 		return (
@@ -36,7 +23,7 @@ function Home() {
 				<h1>Hello, {user.name}!</h1>
 				<ul className="p-3">
 					{
-						tricks.filter(trick => trick.user == user.user_id).map(filteredTrick => (
+						tricks.filter(trick => trick.user == user.user_id & trick.cats == 'grind').map(filteredTrick => (
 							<li>
 								{filteredTrick.name} | {filteredTrick.cats}
 							</li>
@@ -52,5 +39,4 @@ function Home() {
 	}	
 }
 
-export default Home;
-
+export default Grind;

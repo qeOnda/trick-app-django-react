@@ -1,30 +1,27 @@
 import React from 'react'
-import AuthService from '../Services/auth.service.js'
+import { Link } from "react-router-dom";
 
 
 const Category = () => {
-	const currentUser = AuthService.getCurrentUser();
-
 	return (
-		<div>
-			<header>
-				<h3>
-					<strong>{currentUser.username}</strong>
-				</h3>
-				<p>
-					<strong>Token: </strong>currentUser.accessToken.substring(0, 20)} ...{" "} 
-					{currentUser.accessToken.substr(currentUser.accessToken.length - 20)}		
-				</p>
-				<p>
-					<strong>Id: </strong>{currentUser.id}
-				</p>
-				<p>
-					<strong>Email: </strong>{currentUser.email}
-				</p>
-			</header>
-		</div>
+		<div className="p-3 text-center">
+			<ul>
+				<li>
+					<Link to="/categories/flip">Flip</Link>
+				</li>
+				<li>
+					<Link to="/categories/grind">Grind</Link>
+				</li>
+				<li>
+					<Link to="/categories/slide">Slide</Link>	
+				</li>
+				<li>
+					<Link to="/categories/manual">Manual</Link>
+				</li>
+			</ul>	
+		</div>	
 	)
-
 }
 
 export default Category;
+

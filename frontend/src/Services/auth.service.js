@@ -23,7 +23,12 @@ const logout = () => {
 };	
 
 const getCurrentUser = () => {
-	return JSON.parse(localStorage.getItem("access_token"));
+	const check = JSON.parse(localStorage.getItem("access_token"));
+	if (check){
+		return true
+	} else {
+		return false
+	}
 };	
 
 export default {
