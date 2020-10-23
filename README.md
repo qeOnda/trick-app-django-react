@@ -8,4 +8,5 @@ https://medium.com/javascript-in-plain-english/react-hooks-how-to-use-useeffect-
 https://github.com/adamwathan/theming-tailwind-demo  
 https://stackoverflow.com/questions/42077532/django-security-and-settings  
 https://reactjsexample.com/responsive-breakpoints-in-react/  
-https://stackoverflow.com/questions/63108841/how-to-control-the-order-of-rendering-components-in-react
+https://stackoverflow.com/questions/63108841/how-to-control-the-order-of-rendering-components-in-react  
+https://dev.to/mychal/protected-routes-with-react-function-components-dh
