@@ -9,6 +9,8 @@ import {
 import Home from './Views/Home'
 import Header from './Components/Header'
 import Category from './Views/Category'
+import Cats from './Views/Cats'
+import CatsId from './Views/CatsId'
 import Random from './Views/Random'
 import Register from './Views/Register'
 import Add from './Views/Add'
@@ -39,22 +41,17 @@ function App() {
 						<Route exact path="/login">
 			    			<Login />
 			    		</Route>
-			    		<Route exact path="/register">
+			    		<Route path="/register">
 			    			<Register />
 			    		</Route>
-			    		<Route exact path="/home">
+			    		<Route path="/home">
 			    			<RegLogMessage />
 			    		</Route>
-			    		
 			    		<Guarded exact path='/' component={Home} setLoadedHeader={setLoadedHeader} props={loadHeader} />
 			    		<Guarded path='/add' component={Add} />
 			    		<Guarded path='/random' component={Random} />
 			    		<Guarded path='/hello' component={Hello} />
-			    		<Guarded exact path='/categories' component={Category} />
-			    		<Guarded path='/categories/flip' component={Flip} />
-			    		<Guarded path='/categories/grind' component={Grind} />
-			    		<Guarded path='/categories/slide' component={Slide} />
-			    		<Guarded path='/categories/manual' component={Manual} />
+			    		<Guarded path='/categories' component={Cats} />
 			    	</Switch>	
 			</Router>	
 	)	
