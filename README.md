@@ -10,4 +10,5 @@ https://stackoverflow.com/questions/42077532/django-security-and-settings
 https://reactjsexample.com/responsive-breakpoints-in-react/  
 https://stackoverflow.com/questions/63108841/how-to-control-the-order-of-rendering-components-in-react  
 https://dev.to/mychal/protected-routes-with-react-function-components-dh  
-https://www.sitepoint.com/react-router-complete-guide/
+https://www.sitepoint.com/react-router-complete-guide/  
+https://learnwithparam.com/blog/dynamic-pages-in-react-router/
