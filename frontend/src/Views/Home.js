@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import getUser from '../Services/getUser'
 import axiosInstance from "../Services/axiosApi";
 import Loading from '../Components/Loading'
+import getUser from '../Services/getUser'
 
 function Home() {
-	const user = getUser()
-
 	const [tricks, setTricks] = useState([]);
 	const [load, setLoad] = useState(false);
 	const [error, setError] = useState('');
+	const user = getUser()
+
 
 	useEffect(() => {
 		axiosInstance.get('tricks/?format=json')
@@ -22,6 +22,9 @@ function Home() {
 			})
 	}, []);
 
+	
+	console.log(tricks[0])
+
 	if(error) {
 		return (
 			<div className="p-3 text-center">
@@ -33,16 +36,18 @@ function Home() {
 	if(load) {
 		return (
 			<div className="p-3 text-center">
-				<h1>Hello, {user.name}!</h1>
-				<ul className="p-3">
-					{
-						tricks.filter(trick => trick.user == user.user_id).map(filteredTrick => (
+					<div className="pb-8">
+						<h1>Hello, {user.name}!</h1>						
+					</div>
+				{tricks.map((trick) => (
+					<div>
+						<ul>
 							<li>
-								{filteredTrick.name} | {filteredTrick.cats}
+								{trick.name} | {trick.cats} | {trick.user_name} 
 							</li>
-						)	
-					)}						
-				</ul>
+						</ul>
+					</div>	
+				))}	
 			</div>	
 		)
 	} else {

@@ -15,6 +15,10 @@ class LearnViewSet(viewsets.ModelViewSet):
 	serializer_class = ToLearnSerializer
 	permission_classes = [permissions.IsAuthenticated]	
 	authentication_classes = [JWTAuthentication]
+	def get_queryset(self):
+		queryset = self.queryset
+		query_set = queryset.filter(user=self.request.user)
+		return query_set
 	
 
 class UserCreate(APIView):

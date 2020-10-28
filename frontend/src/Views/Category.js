@@ -1,27 +1,59 @@
-import React from 'react'
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { Link, Route } from "react-router-dom";
+import axiosInstance from "../Services/axiosApi";
+import Loading from '../Components/Loading'
+import CatsId from './CatsId'
 
 
-const Category = () => {
-	return (
-		<div className="p-3 text-center">
-			<ul>
-				<li>
-					<Link to="/categories/flip">Flip</Link>
-				</li>
-				<li>
-					<Link to="/categories/grind">Grind</Link>
-				</li>
-				<li>
-					<Link to="/categories/slide">Slide</Link>	
-				</li>
-				<li>
-					<Link to="/categories/manual">Manual</Link>
-				</li>
-			</ul>	
-		</div>	
-	)
+const Cats = ({match}) => {
+	const [tricks, setTricks] = useState([]);
+	const [load, setLoad] = useState(false);
+
+	useEffect(() => {
+		axiosInstance.get('tricks/?format=json')
+			.then(response => {
+				setTricks(response.data);
+				setLoad(true);
+			})
+	}, []);
+
+	
+	const check = tricks.map( (value) => value.cats)
+		.filter( (value, index, _arr) => _arr.indexOf(value) == index);
+
+
+	const linklist = check.map((trick) => {
+		return (
+			<li>
+				<Link to={`${match.url}/${trick}`}>{trick}</Link>
+			</li>
+		)
+	})
+
+	if(load){
+		return (
+			<div className="theme-startup flex h-screen p-3">
+				<div className="p-3 w-1/4 bg-primary ">
+					<div className="">
+						<h1>Categories</h1>
+					</div>
+					<div className="mt-2">		
+						<ul>{linklist}</ul>
+					</div>	
+				</div>
+
+				<Route
+					path={`${match.url}/:cats`}
+					render={(props) => <CatsId data={tricks} {...props} />}
+				/>
+			</div>
+		)
+	} else {
+		return (
+			<Loading />
+		);
+	}
 }
 
-export default Category;
+export default Cats;
 

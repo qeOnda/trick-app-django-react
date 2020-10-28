@@ -9,17 +9,13 @@ import {
 import Home from './Views/Home'
 import Header from './Components/Header'
 import Category from './Views/Category'
-import Cats from './Views/Cats'
 import CatsId from './Views/CatsId'
+import TrickId from './Views/TrickId'
 import Random from './Views/Random'
 import Register from './Views/Register'
 import Add from './Views/Add'
 import Login from './Components/Login'
 import Hello from './Components/Hello'
-import Flip from './Views/Flip'
-import Manual from './Views/Manual'
-import Grind from './Views/Grind'
-import Slide from './Views/Slide'
 import getUser from './Services/getUser'
 import RegLogMessage from './Components/RegLogMessage'
 import Guarded from './Components/Guarded'
@@ -47,11 +43,12 @@ function App() {
 			    		<Route path="/home">
 			    			<RegLogMessage />
 			    		</Route>
-			    		<Guarded exact path='/' component={Home} setLoadedHeader={setLoadedHeader} props={loadHeader} />
+			    		{loadHeader && <Guarded exact path='/' component={Home} setLoadedHeader={setLoadedHeader} />}
 			    		<Guarded path='/add' component={Add} />
 			    		<Guarded path='/random' component={Random} />
 			    		<Guarded path='/hello' component={Hello} />
-			    		<Guarded path='/categories' component={Cats} />
+			    		<Guarded path='/categories/:cats/:id' component={TrickId} />
+			    		<Guarded path='/categories' component={Category} />
 			    	</Switch>	
 			</Router>	
 	)	
