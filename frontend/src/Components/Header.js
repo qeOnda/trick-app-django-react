@@ -23,7 +23,7 @@ const Header = ({ setLoadedHeader }) => {
 		const user = AuthService.getCurrentUser();
 		setTimeout(() => {
 			setLoadedHeader();
-		}, 1000);
+		}, 100);
 		if (user) {
 			setCurrentUser(user)
 		}	
@@ -59,7 +59,6 @@ const Header = ({ setLoadedHeader }) => {
 									<Link to='/add'>Add</Link>
 									<Link to='/categories'>Categories</Link>
 									<Link to='/random'>Random</Link>
-									<Link to='/hello'>Hello</Link>
 								</span>
 							</div>	
 							<div className="px-4 items-left">

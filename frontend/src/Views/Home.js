@@ -22,8 +22,6 @@ function Home() {
 			})
 	}, []);
 
-	
-	console.log(tricks[0])
 
 	if(error) {
 		return (

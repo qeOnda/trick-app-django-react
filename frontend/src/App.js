@@ -15,7 +15,6 @@ import Random from './Views/Random'
 import Register from './Views/Register'
 import Add from './Views/Add'
 import Login from './Components/Login'
-import Hello from './Components/Hello'
 import getUser from './Services/getUser'
 import RegLogMessage from './Components/RegLogMessage'
 import Guarded from './Components/Guarded'
@@ -46,7 +45,6 @@ function App() {
 			    		{loadHeader && <Guarded exact path='/' component={Home} setLoadedHeader={setLoadedHeader} />}
 			    		<Guarded path='/add' component={Add} />
 			    		<Guarded path='/random' component={Random} />
-			    		<Guarded path='/hello' component={Hello} />
 			    		<Guarded path='/categories/:cats/:id' component={TrickId} />
 			    		<Guarded path='/categories' component={Category} />
 			    	</Switch>	

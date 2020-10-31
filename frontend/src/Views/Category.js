@@ -5,6 +5,7 @@ import Loading from '../Components/Loading'
 import CatsId from './CatsId'
 
 
+
 const Cats = ({match}) => {
 	const [tricks, setTricks] = useState([]);
 	const [load, setLoad] = useState(false);
@@ -32,16 +33,15 @@ const Cats = ({match}) => {
 
 	if(load){
 		return (
-			<div className="theme-startup flex h-screen p-3">
-				<div className="p-3 w-1/4 bg-primary ">
-					<div className="">
+			<div className="theme-startup md:flex h-screen p-3 ">
+				<div className="p-3 md:w-1/4 bg-primary h-40 md:h-full">
+					<div className="text-center md:text-left">
 						<h1>Categories</h1>
 					</div>
-					<div className="mt-2">		
+					<div className="text-center md:text-left mt-2">		
 						<ul>{linklist}</ul>
 					</div>	
 				</div>
-
 				<Route
 					path={`${match.url}/:cats`}
 					render={(props) => <CatsId data={tricks} {...props} />}
