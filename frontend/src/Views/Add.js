@@ -69,46 +69,56 @@ const Add = (props) => {
 	}
 
 	return (
-		<div className="p-3 text-center">
-			<Form onSubmit={handleSubmit} ref={form}>
-				<h1>{user.user_id}</h1>
-				<h1>{user.name}</h1>
-				<div className="form-group">
-					<label htmlFor="name">Trick Name: </label>
-					<Input
-						type="text"
-						name="name"
-						value={name}
-						className="form-control"
-						onChange={onChangeName}
-						validations={[required]}
-					/>
+		<div className="w-full theme-startup flex justify-center mt-6">
+			<Form onSubmit={handleSubmit} ref={form} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+				<div className="mb-8">	
+					<div className="form-group  mb-4">
+						<label htmlFor="name">Trick Name: </label>
+						<Input
+							type="text"
+							name="name"
+							value={name}
+							className="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+							placeholder="Trick Name"
+							onChange={onChangeName}
+							validations={[required]}
+						/>
+					</div>
+					
+					<div className="form-group mb-4">
+						<label htmlFor="name">Video URL: </label>
+						<Input
+							type="text"
+							name="video"
+							value={video}
+							className="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+							placeholder="Video URL"
+							onChange={onChangeVideo}
+							validations={[required]}
+						/>
+					</div>
+					<div className="form-group mb-4">
+						<label htmlFor="name">Category: 
+							<select 
+								value={cats} 
+								onChange={onChangeCats}
+								className="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+							>
+								<option value="">--SELECT--</option>
+								<option value="manual">Manual</option>
+								<option value="slide">Slide</option>
+								<option value="grind">Grind</option>
+								<option value="flip">Flip</option>
+							</select>	
+						</label>
+					</div>
 				</div>
-				
+					
 				<div className="form-group">
-					<label htmlFor="name">Video URL: </label>
-					<Input
-						type="text"
-						name="video"
-						value={video}
-						className="form-control"
-						onChange={onChangeVideo}
-						validations={[required]}
-					/>
-				</div>
-				<div className="form-group">
-					<label htmlFor="name">Category: 
-						<select value={cats} onChange={onChangeCats}>
-							<option value="">--SELECT--</option>
-							<option value="manual">Manual</option>
-							<option value="slide">Slide</option>
-							<option value="grind">Grind</option>
-							<option value="flip">Flip</option>
-						</select>	
-					</label>
-				</div>
-				<div className="form-group">
-					<button disabled={loading}>
+					<button 
+						disabled={loading}
+						className="bg-secondary hover:bg-secondary text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+					>
 						<span>Add Trick</span>
 					</button>
 				</div>		
@@ -122,7 +132,7 @@ const Add = (props) => {
 				)}		
 				<CheckButton style={{ display: "none" }} ref={checkBtn} />
 			</Form>
-		</div>		
+		</div>				
 	)	
 }
 

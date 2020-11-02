@@ -59,52 +59,61 @@ const Register = (props) => {
 
 
 	return (
-		<Form onSubmit={handleLogin} ref={form}>
-			<div className="form-group">
-				<label htmlFor="email">Email</label>
-				<Input
-					type="email"
-					name="email"
-					value={email}
-					className="form-control"
-					onChange={onChangeEmail}
-					validations={[required]}
-				/>
-			</div>
+		<div className="w-full theme-startup flex justify-center mt-6">
+			<Form onSubmit={handleLogin} ref={form} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+				<div className="mb-8">	
+					<div className="form-group mb-4">
+						<label htmlFor="email">Email</label>
+						<Input
+							type="email"
+							name="email"
+							value={email}
+							className="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+							placeholder="Email"
+							onChange={onChangeEmail}
+							validations={[required]}
+						/>
+					</div>
 
-			<div className="form-group">
-				<label htmlFor="username">Username</label>
-				<Input
-					type="text"
-					name="username"
-					value={username}
-					className="form-control"
-					onChange={onChangeUsername}
-					validations={[required]}
-				/>
-			</div>
-			
-			<div className="form-group">
-				<label htmlFor="password">Password</label>
-				<Input
-					type="password"
-					name="password"
-					value={password}
-					className="form-control"
-					onChange={onChangePassword}
-					validations={[required]}
-				/>
-			</div>
-			
-			<div className="form-group">
-				<button>
-					<span>Register</span>
-				</button>
-			</div>		
-
+					<div className="form-group mb-4">
+						<label htmlFor="username">Username</label>
+						<Input
+							type="text"
+							name="username"
+							value={username}
+							className="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+							placeholder="Username"
+							onChange={onChangeUsername}
+							validations={[required]}
+						/>
+					</div>
 					
-			<CheckButton style={{ display: "none" }} ref={checkBtn} />
-		</Form>	
+					<div className="form-group mb-4">
+						<label htmlFor="password">Password</label>
+						<Input
+							type="password"
+							name="password"
+							value={password}
+							className="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+							placeholder="Password"
+							onChange={onChangePassword}
+							validations={[required]}
+						/>
+					</div>
+				</div>	
+				
+				<div className="form-group">
+					<button
+						className="bg-secondary hover:bg-secondary text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+
+					>
+						<span>Register</span>
+					</button>
+				</div>		
+											
+				<CheckButton style={{ display: "none" }} ref={checkBtn} />
+			</Form>	
+		</div>	
 	)
 }
 

@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import { layoutGenerator } from 'react-break'
 import Navigation from './Navigation'
 
 import AuthService from '../Services/auth.service'
+
+import test from './test.css'
 
 const layout = layoutGenerator({
   mobile: 0,
@@ -34,18 +36,14 @@ const Header = ({ setLoadedHeader }) => {
 	}
 
 	return (
-		<div>	
+		<div className="theme-startup">	
 			<Other>
-				<div className="theme-startup">
-					<header className="bg-secondary shadow-lg border-b p-2 flex justify-between items-center">
-						<span className="px-6 font-bold">
-							<Link to='/'>TRICK APP</Link>
-						</span>
-
-						<Navigation />
-						
-					</header>
-				</div>	
+				<header className="bg-secondary shadow-lg border-b p-2 flex justify-between items-center">
+					<span className="px-6 font-bold">
+						<Link to='/'>TRICK APP</Link>
+					</span>
+					<Navigation />
+				</header>	
 			</Other>
 
 			<OnDesktop>
@@ -56,9 +54,33 @@ const Header = ({ setLoadedHeader }) => {
 									<Link to='/'>TRICK APP</Link>
 								</span>
 								<span className="px-4 space-x-8">
-									<Link to='/add'>Add</Link>
-									<Link to='/categories'>Categories</Link>
-									<Link to='/random'>Random</Link>
+									<NavLink 
+										to="/add"
+										activeStyle={{
+											"text-decoration": "underline"
+										}}
+									>
+										Add
+									</NavLink>
+
+									<NavLink 
+										to='/categories'
+										activeStyle={{
+											"text-decoration": "underline"
+										}}
+									>
+										Categories
+									</NavLink>
+
+									<NavLink 
+										to='/random'
+										activeStyle={{
+											"text-decoration": "underline"
+										}}
+									>
+										Random
+									</NavLink>
+
 								</span>
 							</div>	
 							<div className="px-4 items-left">

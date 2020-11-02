@@ -34,7 +34,7 @@ const Cats = ({match}) => {
 	if(load){
 		return (
 			<div className="theme-startup md:flex h-screen p-3 ">
-				<div className="p-3 md:w-1/4 bg-primary h-40 md:h-full">
+				<div className="p-3 md:w-1/4 bg-primary h-40 md:h-screen">
 					<div className="text-center md:text-left">
 						<h1>Categories</h1>
 					</div>

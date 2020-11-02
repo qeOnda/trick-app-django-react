@@ -3,6 +3,8 @@ import axiosInstance from "../Services/axiosApi";
 import Loading from '../Components/Loading'
 import getUser from '../Services/getUser'
 
+import Add from './Add'
+
 function Home() {
 	const [tricks, setTricks] = useState([]);
 	const [load, setLoad] = useState(false);
@@ -33,20 +35,26 @@ function Home() {
 
 	if(load) {
 		return (
-			<div className="p-3 text-center">
+			<div className="p-3 flex justify-between">
+				<div className="text-center" >	
 					<div className="pb-8">
 						<h1>Hello, {user.name}!</h1>						
 					</div>
-				{tricks.map((trick) => (
-					<div>
-						<ul>
-							<li>
-								{trick.name} | {trick.cats} | {trick.user_name} 
-							</li>
-						</ul>
-					</div>	
-				))}	
-			</div>	
+					{tricks.map((trick) => (
+						<div>
+							<ul>
+								<li>
+									{trick.name} | {trick.cats} | {trick.user_name} 
+								</li>
+							</ul>
+						</div>	
+					))}
+				</div>
+				<div>
+					<Add />
+				</div>		
+			</div>
+
 		)
 	} else {
 		return (
