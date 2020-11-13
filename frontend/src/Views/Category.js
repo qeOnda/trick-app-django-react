@@ -33,14 +33,16 @@ const Cats = ({match}) => {
 
 	if(load){
 		return (
-			<div className="theme-startup md:flex h-screen p-3 ">
-				<div className="p-3 md:w-1/4 bg-primary h-40 md:h-screen">
-					<div className="text-center md:text-left">
-						<h1>Categories</h1>
-					</div>
-					<div className="text-center md:text-left mt-2">		
-						<ul>{linklist}</ul>
-					</div>	
+			<div className="bg-gray-100 md:flex md:h-full h-screen p-8">
+				<div className="md:w-1/4 h-40 md:h-screen md:mr-4">
+					<div className="bg-white shadow-md rounded h-full p-4">
+						<div className="text-center md:text-left ">
+							<h1>Categories</h1>
+						</div>
+						<div className="text-center md:text-left mt-4 mb-2">		
+							<ul>{linklist}</ul>
+						</div>	
+					</div>		
 				</div>
 				<Route
 					path={`${match.url}/:cats`}

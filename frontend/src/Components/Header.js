@@ -2,10 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import { layoutGenerator } from 'react-break'
 import Navigation from './Navigation'
-
 import AuthService from '../Services/auth.service'
 
-import test from './test.css'
 
 const layout = layoutGenerator({
   mobile: 0,

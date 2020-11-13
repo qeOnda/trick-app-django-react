@@ -10,8 +10,9 @@ import { history, withRouter } from 'react-router-dom';
 const required = (value) => {
 	if (!value) {
 		return (
-			<div className="alert alert-danger" role="alert">
-				This field is required!
+			<div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+				<strong class="font-bold">Error</strong>
+				<span class="block sm:inline"> This is required!</span>
 			</div>
 		);
 	}
@@ -59,61 +60,63 @@ const Register = (props) => {
 
 
 	return (
-		<div className="w-full theme-startup flex justify-center mt-6">
-			<Form onSubmit={handleLogin} ref={form} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-				<div className="mb-8">	
-					<div className="form-group mb-4">
-						<label htmlFor="email">Email</label>
-						<Input
-							type="email"
-							name="email"
-							value={email}
-							className="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-							placeholder="Email"
-							onChange={onChangeEmail}
-							validations={[required]}
-						/>
-					</div>
+		<div className="bg-gray-100 h-screen">
+			<div className="w-full flex justify-center pt-8">
+				<Form onSubmit={handleLogin} ref={form} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+					<div className="mb-8">	
+						<div className="form-group mb-4">
+							<label htmlFor="email">Email</label>
+							<Input
+								type="email"
+								name="email"
+								value={email}
+								className="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+								placeholder="Email"
+								onChange={onChangeEmail}
+								validations={[required]}
+							/>
+						</div>
 
-					<div className="form-group mb-4">
-						<label htmlFor="username">Username</label>
-						<Input
-							type="text"
-							name="username"
-							value={username}
-							className="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-							placeholder="Username"
-							onChange={onChangeUsername}
-							validations={[required]}
-						/>
-					</div>
+						<div className="form-group mb-4">
+							<label htmlFor="username">Username</label>
+							<Input
+								type="text"
+								name="username"
+								value={username}
+								className="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+								placeholder="Username"
+								onChange={onChangeUsername}
+								validations={[required]}
+							/>
+						</div>
+						
+						<div className="form-group mb-4">
+							<label htmlFor="password">Password</label>
+							<Input
+								type="password"
+								name="password"
+								value={password}
+								className="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+								placeholder="Password"
+								onChange={onChangePassword}
+								validations={[required]}
+							/>
+						</div>
+					</div>	
 					
-					<div className="form-group mb-4">
-						<label htmlFor="password">Password</label>
-						<Input
-							type="password"
-							name="password"
-							value={password}
-							className="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-							placeholder="Password"
-							onChange={onChangePassword}
-							validations={[required]}
-						/>
-					</div>
-				</div>	
-				
-				<div className="form-group">
-					<button
-						className="bg-secondary hover:bg-secondary text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+					<div className="form-group">
+						<button
+							className="bg-secondary hover:bg-secondary text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
 
-					>
-						<span>Register</span>
-					</button>
-				</div>		
-											
-				<CheckButton style={{ display: "none" }} ref={checkBtn} />
-			</Form>	
-		</div>	
+						>
+							<span>Register</span>
+						</button>
+					</div>		
+												
+					<CheckButton style={{ display: "none" }} ref={checkBtn} />
+				</Form>	
+			</div>	
+		</div>		
 	)
 }
 

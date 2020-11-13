@@ -23,10 +23,10 @@ function Random() {
 
 	if(load){ 
 		return (
-			<div className="theme-startup p-3 h-screen">
+			<div className="p-8 h-full bg-gray-100">
 				{tricks ? (
-					<div className="md:flex bg-primary">
-						<div className="md:w-1/4 text-center p-4 h-40">
+					<div className="md:flex bg-white shadow-md rounded p-4 ">
+						<div className="md:w-1/4 text-center md:text-left p-4 h-40">
 								<p>Trick Name: {tricks.name}</p> 
 								<p>Category: {tricks.cats}</p>
 								<p>Skater: {tricks.user_name}</p>

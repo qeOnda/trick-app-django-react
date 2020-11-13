@@ -10,8 +10,8 @@ const CatsId = ({ match, data }) => {
 	var catData;
 	
 	return (
-		<div className="theme-startup md:w-3/4 bg-primary h-screen">
-			<div className="bg-shadow p-5 text-center md:text-left h-screen">
+		<div className="md:w-3/4  bg-gray-100">
+			<div className="mt-4 md:mt-0 p-4 bg-white shadow-md rounded text-center md:text-left ">
 				{category.length ? (
 					<ul>
 						{

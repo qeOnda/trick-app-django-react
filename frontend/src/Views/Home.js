@@ -3,7 +3,9 @@ import axiosInstance from "../Services/axiosApi";
 import Loading from '../Components/Loading'
 import getUser from '../Services/getUser'
 
-import Add from './Add'
+import AddComponent from '../Components/AddComponent'
+
+import HomeComponent from '../Components/HomeComponent'
 
 function Home() {
 	const [tricks, setTricks] = useState([]);
@@ -35,24 +37,18 @@ function Home() {
 
 	if(load) {
 		return (
-			<div className="p-3 flex justify-between">
-				<div className="text-center" >	
-					<div className="pb-8">
+			<div className="bg-gray-100 pt-8 pb-8 pl-3 pr-3 md:p-8">
+				<div className="pb-8 text-center">
 						<h1>Hello, {user.name}!</h1>						
-					</div>
-					{tricks.map((trick) => (
-						<div>
-							<ul>
-								<li>
-									{trick.name} | {trick.cats} | {trick.user_name} 
-								</li>
-							</ul>
-						</div>	
-					))}
 				</div>
-				<div>
-					<Add />
-				</div>		
+				<div className="md:flex justify-between">
+					<div className="md:w-2/3" >
+						<HomeComponent tricks={tricks}/>	
+					</div>
+					<div className="md:w-1/3 pt-6 md:pl-10">
+						<AddComponent />
+					</div>
+				</div>			
 			</div>
 
 		)

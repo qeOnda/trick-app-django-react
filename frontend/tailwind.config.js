@@ -1,19 +1,6 @@
 module.exports = {
   purge: [],
   theme: {
-  	backgroundColor: {
-  		primary: "var(--color-bg-primary)",
-  		secondary: "var(--color-bg-secondary)",
-      shadow: "var(--color-bg-shadow)"
-  	},
-  	textColor: {
-  		primary: "var(--color-text-primary)",
-
-  	},
-    fontFamily: {
-      display: "var(--font-display)",
-      body: "var(--font-body)"
-    },
     screens: {
       'sm': '640px',
       // => @media (min-width: 640px) { ... }

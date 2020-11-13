@@ -22,7 +22,6 @@ import Guarded from './Components/Guarded'
 import Auth from './Services/auth.service'
 
 
-
 function App() {
 	const [loadHeader, setLoadHeader] = useState(false);
 	const setLoadedHeader = useCallback(() => {
