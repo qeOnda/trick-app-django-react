@@ -20,74 +20,73 @@ const NavigationMenu = (props) => {
 	return (
 		<div>
 			{currentUser ? (	
-				<ul>
-					<li>
-						<Link 
-							to='/'
-							onClick={props.closeMenu}
-							className="underline"
-						>	
-							TRICK APP
-						</Link>
-					</li>
-					<span className="p-10">
-						<li>
-							<Link 
-								to='/add'
-								onClick={props.closeMenu}
-							>	
-								Add Trick
-							</Link>
-						</li>
-						<li>
-							<Link 
-								to='/categories'
-								onClick={props.closeMenu}
+				<nav className="grid gap-y-8">
+					<Link 
+						to='/'
+						onClick={props.closeMenu}
+						className="underline"
+					>	
+						TRICK APP
+					</Link>
+					<Link 
+						to='/add'
+						onClick={props.closeMenu}
+						className="-m-3 p-3 flex items-center space-x-3 rounded-md hover:bg-indigo-400 transition ease-in-out duration-150"
+					>	
+						Add Trick
+					</Link>
+					<Link 
+						to='/categories'
+						onClick={props.closeMenu}
+						className="-m-3 p-3 flex items-center space-x-3 rounded-md hover:bg-indigo-400 transition ease-in-out duration-150"
+					>
+						Categories
+					</Link>
+					<Link 
+						to='/random'
+						onClick={props.closeMenu}
+						className="-m-3 p-3 flex items-center space-x-3 rounded-md hover:bg-indigo-400 transition ease-in-out duration-150"
+					>
+						Random
+					</Link>
+					<div className="space-y-6">
+						<span className="w-full flex rounded-md shadow-sm">
+							<a 
+								href='/' 
+								onClick={logOut}
+								className="w-full flex items-center justify-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150"
 							>
-								Categories
-							</Link>
-						</li>
-						<li>
-							<Link 
-								to='/random'
-								onClick={props.closeMenu}
-							>
-								Random
-							</Link>
-						</li>
-					</span>	
-					<li>
-						<a href='/' onClick={logOut}>Logout</a>
-					</li>
-				</ul>
+								Logout
+							</a>
+						</span>	
+					</div>
+				</nav>
 			) : (
-				<ul>
-					<li>
-						<Link 
-							to='/'
-							onClick={props.closeMenu}
-							className="underline"
-						>	
-							TRICK APP
-						</Link>
-					</li>
-					<li>
+				<nav className="grid gap-y-8">
+					<Link 
+						to='/'
+						onClick={props.closeMenu}
+						className="underline"
+					>	
+						TRICK APP
+					</Link>
+					<div className="space-y-6">
 						<Link 
 							to='/login'
 							onClick={props.closeMenu}
+							className="w-full flex items-center justify-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150"
 						>	
 							Login
 						</Link>
-					</li>
-					<li>
 						<Link 
 							to='/register'
 							onClick={props.closeMenu}
+							className="w-full flex items-center justify-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150"
 						>	
 							Register
 						</Link>
-					</li>
-				</ul>	
+					</div>	
+				</nav>	
 			)}
 		</div>		
 	)

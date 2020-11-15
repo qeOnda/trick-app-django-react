@@ -48,7 +48,9 @@ function Random() {
 						</div>
 					</div>	
 				) : (
-					<h2>Hmmm something went wrong there. Please try again.</h2>
+					<div className="p-8 h-screen bg-gray-100">
+						<h2>Hmmm something went wrong there. Please try again.</h2>
+					</div>	
 				)}
 			</div>			
 		)

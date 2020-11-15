@@ -34,9 +34,9 @@ const Header = ({ setLoadedHeader }) => {
 	}
 
 	return (
-		<div className="theme-startup">	
+		<div className="">	
 			<Other>
-				<header className="bg-secondary shadow-lg border-b p-2 flex justify-between items-center">
+				<header className="bg-indigo-300 shadow-lg border-b p-2 flex justify-between items-center">
 					<span className="px-6 font-bold">
 						<Link to='/'>TRICK APP</Link>
 					</span>
@@ -46,7 +46,7 @@ const Header = ({ setLoadedHeader }) => {
 
 			<OnDesktop>
 					{currentUser ? (
-						<header className="bg-default shadow-sm border-b p-2 flex justify-between">
+						<header className="bg-white shadow-sm border-b p-2 flex justify-between">
 							<div>	
 								<span className="px-6 font-bold">
 									<Link to='/'>TRICK APP</Link>
@@ -86,7 +86,7 @@ const Header = ({ setLoadedHeader }) => {
 							</div>
 						</header>					
 					) : (
-						<header className="bg-default shadow-sm border-b p-2 flex justify-between">
+						<header className="bg-white shadow-sm border-b p-2 flex justify-between">
 							<div>
 								<span className="px-6 font-bold">
 									<Link to='/'>TRICK APP</Link>

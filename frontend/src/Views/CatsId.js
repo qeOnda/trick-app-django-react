@@ -13,12 +13,14 @@ const CatsId = ({ match, data }) => {
 		<div className="md:w-3/4  bg-gray-100">
 			<div className="mt-4 md:mt-0 p-4 bg-white shadow-md rounded text-center md:text-left ">
 				{category.length ? (
-					<ul>
+					<ul className="grid gap-y-6">
 						{
 							category.map(filteredTrick => (
 								<li>
-									<Link to={`/categories/${filteredTrick.cats}/${filteredTrick.id}`}>
-										{filteredTrick.name} | {filteredTrick.cats} | {filteredTrick.user_name}
+									<Link 
+										to={`/categories/${filteredTrick.cats}/${filteredTrick.id}`}
+									>
+										<span className="-m-3 p-3 space-x-3 rounded-md hover:bg-indigo-400 transition ease-in-out duration-150">{filteredTrick.name} | {filteredTrick.cats} | {filteredTrick.user_name}</span>
 									</Link>	 
 								</li>
 							)	

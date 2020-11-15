@@ -26,7 +26,12 @@ const Cats = ({match}) => {
 	const linklist = check.map((trick) => {
 		return (
 			<li>
-				<Link to={`${match.url}/${trick}`}>{trick}</Link>
+				<Link 
+					to={`${match.url}/${trick}`}
+					className="-m-3 p-3 flex items-center space-x-3 rounded-md hover:bg-indigo-400 transition ease-in-out duration-150"
+				>
+					{trick}
+				</Link>
 			</li>
 		)
 	})
@@ -39,8 +44,8 @@ const Cats = ({match}) => {
 						<div className="text-center md:text-left ">
 							<h1>Categories</h1>
 						</div>
-						<div className="text-center md:text-left mt-4 mb-2">		
-							<ul>{linklist}</ul>
+						<div className="text-center md:text-left mt-4 mb-2">
+							<ul className="grid gap-y-8">{linklist}</ul>
 						</div>	
 					</div>		
 				</div>
