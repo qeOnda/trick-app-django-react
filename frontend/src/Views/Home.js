@@ -37,7 +37,7 @@ function Home() {
 
 	if(load) {
 		return (
-			<div className="bg-gray-100 h-screen pt-8 pb-8 pl-3 pr-3 md:p-8">
+			<div className="bg-gray-100 h-full pt-8 pb-8 pl-3 pr-3 md:p-8">
 				<div className="pb-8 text-center">
 						<h1>Hello, {user.name}!</h1>						
 				</div>

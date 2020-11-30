@@ -10,10 +10,10 @@ const CatsId = ({ match, data }) => {
 	var catData;
 	
 	return (
-		<div className="md:w-3/4  bg-gray-100">
+		<div className="md:w-3/4 h-3/4 w-full bg-gray-100">
 			<div className="mt-4 md:mt-0 p-4 bg-white shadow-md rounded text-center md:text-left ">
 				{category.length ? (
-					<ul className="grid gap-y-6">
+					<ul className="p-3 grid gap-y-6">
 						{
 							category.map(filteredTrick => (
 								<li>
@@ -29,7 +29,7 @@ const CatsId = ({ match, data }) => {
 				) : (
 					<h2>You haven't logged a trick yet!</h2>
 				)}
-			</div>	
+			</div>
 		</div>
 	)	
 }

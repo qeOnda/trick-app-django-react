@@ -28,7 +28,7 @@ const Cats = ({match}) => {
 			<li>
 				<Link 
 					to={`${match.url}/${trick}`}
-					className="-m-3 p-3 flex items-center space-x-3 rounded-md hover:bg-indigo-400 transition ease-in-out duration-150"
+					className="md:-m-3 md:p-3 md:space-x-3 -m-2 p-2 space-x-2 rounded-md hover:bg-indigo-400 transition ease-in-out duration-150"
 				>
 					{trick}
 				</Link>
@@ -38,14 +38,14 @@ const Cats = ({match}) => {
 
 	if(load){
 		return (
-			<div className="bg-gray-100 md:flex md:h-full h-screen p-8">
-				<div className="md:w-1/4 h-40 md:h-screen md:mr-4">
-					<div className="bg-white shadow-md rounded h-full p-4">
-						<div className="text-center md:text-left ">
+			<div className="bg-gray-100 md:flex md:h-full h-screen w-screen p-8">
+				<div className="md:w-1/4 h-1/4 md:h-screen md:mr-4">
+					<div className="bg-white shadow-md rounded h-full pb-2 md:p-4">
+						<div className="invisible md:visible text-center md:text-left md:mb-8">
 							<h1>Categories</h1>
 						</div>
-						<div className="text-center md:text-left mt-4 mb-2">
-							<ul className="grid gap-y-8">{linklist}</ul>
+						<div className="text-center md:text-left md:mt-4 mb-4">
+							<ul className="grid gap-y-4 md:gap-y-8">{linklist}</ul>
 						</div>	
 					</div>		
 				</div>

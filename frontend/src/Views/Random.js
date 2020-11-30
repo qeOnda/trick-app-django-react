@@ -30,7 +30,6 @@ function Random() {
 								<p>Trick Name: {tricks.name}</p> 
 								<p>Category: {tricks.cats}</p>
 								<p>Skater: {tricks.user_name}</p>
-								<p>ID: {tricks.id}</p>
 						</div>		
 												
 						<div className="h-3/4 md:w-3/4 h-screen bg-shadow content-center ">

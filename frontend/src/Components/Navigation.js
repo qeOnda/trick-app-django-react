@@ -34,7 +34,7 @@ function Navigation() {
 					<animated.div 
 						key={key} 
 						style={props}
-						className="bg-shadow fixed top-0 left-0 w-full h-full z-50"
+						className="fixed bg-gray-500 bg-opacity-75 top-0 left-0 w-full h-screen z-50"
 						onClick={() => setShowMenu(false)}
 					>
 					</animated.div>

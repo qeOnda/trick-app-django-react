@@ -55,7 +55,8 @@ const Header = ({ setLoadedHeader }) => {
 									<NavLink 
 										to="/add"
 										activeStyle={{
-											"text-decoration": "underline"
+											"text-decoration": "underline",
+											"text-decoration-color": "#818CF8"
 										}}
 									>
 										Add
@@ -64,7 +65,8 @@ const Header = ({ setLoadedHeader }) => {
 									<NavLink 
 										to='/categories'
 										activeStyle={{
-											"text-decoration": "underline"
+											"text-decoration": "underline",
+											"text-decoration-color": "#818CF8"
 										}}
 									>
 										Categories
@@ -73,7 +75,8 @@ const Header = ({ setLoadedHeader }) => {
 									<NavLink 
 										to='/random'
 										activeStyle={{
-											"text-decoration": "underline"
+											"text-decoration": "underline",
+											"text-decoration-color": "#818CF8"
 										}}
 									>
 										Random

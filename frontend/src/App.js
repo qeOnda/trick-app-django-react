@@ -15,6 +15,7 @@ import Random from './Views/Random'
 import Register from './Views/Register'
 import Add from './Views/Add'
 import Login from './Views/Login'
+import NotFound from './Views/NotFound'
 import getUser from './Services/getUser'
 import RegLogMessage from './Components/RegLogMessage'
 import Guarded from './Components/Guarded'
@@ -46,6 +47,7 @@ function App() {
 			    		<Guarded path='/random' component={Random} />
 			    		<Guarded path='/categories/:cats/:id' component={TrickId} />
 			    		<Guarded path='/categories' component={Category} />
+			    		<Route component={NotFound} />
 			    	</Switch>	
 			</Router>	
 	)	
