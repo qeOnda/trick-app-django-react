@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axiosInstance from "../Services/axiosApi";
 import Loading from './Loading'
+import { Link, Route } from "react-router-dom";
 import LearnedComponent from './LearnedComponent'
 
 function HomeComponent(props) {
@@ -31,7 +32,11 @@ function HomeComponent(props) {
 									{props.tricks.map((trick) => (
 										<tr>
 											<td className="px-4 py-4 whitespace-no-wrap">
-												{trick.name}                
+												<Link 
+													to={`/categories/${trick.cats}/${trick.id}`}
+												>
+													<span className="-m-3 p-3 space-x-3 rounded-md hover:bg-indigo-400 transition ease-in-out duration-150">{trick.name}</span>
+												</Link>                
 											</td>
 											<td className="px-4 py-4 whitespace-no-wrap">
 												{trick.cats}                
