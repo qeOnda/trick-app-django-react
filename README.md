@@ -1,15 +1,36 @@
-# trick-app-django-react
-trick app revamped with react and django  
-Original project: https://github.com/qeOnda/trick-app-django
+# trick-app-django-react 
+Trick App is a "to-do" list for learning skateboard tricks. You enter a trick name, type of trick and a tutorial video URL from YouTube into the app and once you learn the trick you can mark it as **completed**.  
 
-## Useful Resources
+Trick App was build using Django as the backend and React for the frontend. It is a revamped, full-stack version of an application I made earlier in my programming journey. You can find the original project live [here](https://sk8pp.herokuapp.com/) and the repo [here](https://github.com/qeOnda/trick-app-django).  
+  
+The site is live here: URL TO APP  
+
+### Install and run on localhost 
+First clone repo:   
+```
+$ git clone https://github.com/qeOnda/trick-app-django-react
+```
+Then install React dependencies and start frontend development server: 
+```
+$ cd trick-app-django-react
+$ cd frontend
+$ yarn install 
+$ yarn start
+```
+Then install Django dependencies and start backend development server from root directory:
+```
+$ cd backend
+$ pipenv shell 
+$ pipenv install 
+$ DJANGO_ENV=development python manage.py runserver
+```
+Now the development server will be running at localhost:8000.
+
+
+### Useful Resources
+#### Configure React with Django
 https://fractalideas.com/blog/making-react-and-django-play-well-together/  
-https://medium.com/javascript-in-plain-english/react-hooks-how-to-use-useeffect-ecea3e90d84f  
+#### React router and protected routes  
 https://github.com/adamwathan/theming-tailwind-demo  
-https://stackoverflow.com/questions/42077532/django-security-and-settings  
-https://reactjsexample.com/responsive-breakpoints-in-react/  
-https://stackoverflow.com/questions/63108841/how-to-control-the-order-of-rendering-components-in-react  
 https://dev.to/mychal/protected-routes-with-react-function-components-dh  
-https://www.sitepoint.com/react-router-complete-guide/  
-https://learnwithparam.com/blog/dynamic-pages-in-react-router/  
-https://upmostly.com/tutorials/modal-components-react-custom-hooks
+https://learnwithparam.com/blog/dynamic-pages-in-react-router/
