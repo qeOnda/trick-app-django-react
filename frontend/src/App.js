@@ -24,14 +24,9 @@ import Auth from './Services/auth.service'
 
 
 function App() {
-	const [loadHeader, setLoadHeader] = useState(false);
-	const setLoadedHeader = useCallback(() => {
-		setLoadHeader(true);
-	}, [])
-
 	return (
 		<Router>
-			<Header setLoadedHeader={setLoadedHeader}/>
+			<Header />
 					<Switch>
 						<Route exact path="/login">
 			    			<Login />
@@ -42,7 +37,7 @@ function App() {
 			    		<Route path="/home">
 			    			<RegLogMessage />
 			    		</Route>
-			    		{loadHeader && <Guarded exact path='/' component={Home} setLoadedHeader={setLoadedHeader} />}
+			    		<Guarded exact path='/' component={Home} />
 			    		<Guarded path='/add' component={Add} />
 			    		<Guarded path='/random' component={Random} />
 			    		<Guarded path='/categories/:cats/:id' component={TrickId} />
@@ -54,3 +49,5 @@ function App() {
 }
 
 export default App;
+
+

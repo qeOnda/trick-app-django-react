@@ -10,6 +10,10 @@ const Cats = ({match}) => {
 	const [tricks, setTricks] = useState([]);
 	const [load, setLoad] = useState(false);
 
+	const capitaliseStyle = {
+		textTransform: 'capitalize'
+	}
+
 	useEffect(() => {
 		axiosInstance.get('tricks/?format=json')
 			.then(response => {
@@ -44,7 +48,7 @@ const Cats = ({match}) => {
 						<div className="invisible md:visible text-center md:text-left md:mb-8">
 							<h1>Categories</h1>
 						</div>
-						<div className="text-center md:text-left md:mt-4 mb-4">
+						<div style={capitaliseStyle} className="text-center md:text-left md:mt-4 mb-4">
 							<ul className="grid gap-y-4 md:gap-y-8">{linklist}</ul>
 						</div>	
 					</div>		

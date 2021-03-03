@@ -10,6 +10,10 @@ function Random() {
 	const [tricks, setTricks] = useState([]);
 	const [load, setLoad] = useState(false);
 
+	const capitaliseStyle = {
+		textTransform: 'capitalize'
+	}
+
 	useEffect(() => {
 		axiosInstance.get('tricks/?format=json')
 			.then(response => {
@@ -28,8 +32,7 @@ function Random() {
 					<div className="md:flex bg-white shadow-md rounded p-4 ">
 						<div className="md:w-1/4 text-center md:text-left p-4 h-40">
 								<p>Trick Name: {tricks.name}</p> 
-								<p>Category: {tricks.cats}</p>
-								<p>Skater: {tricks.user_name}</p>
+								<p>Category: <span style={capitaliseStyle}>{tricks.cats}</span></p>								
 						</div>		
 												
 						<div className="h-3/4 md:w-3/4 h-screen bg-shadow content-center ">

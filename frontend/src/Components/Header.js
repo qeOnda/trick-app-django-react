@@ -16,18 +16,15 @@ const layout = layoutGenerator({
 const OnDesktop = layout.isAtLeast('tablet');
 const Other = layout.isAtMost('phablet');
 
-const Header = ({ setLoadedHeader }) => {
+const Header = () => {
 	const [currentUser, setCurrentUser] = useState(undefined) 
 
 	useEffect(() => {
-		const user = AuthService.getCurrentUser();
-		setTimeout(() => {
-			setLoadedHeader();
-		}, 100);
+		const user = AuthService.getCurrentUser();		
 		if (user) {
-			setCurrentUser(user)
-		}	
-	}, [setLoadedHeader]);
+			setCurrentUser(user)						
+		}			
+	}, []);
 
 	const logOut = () => {
 		AuthService.logout()
@@ -54,38 +51,29 @@ const Header = ({ setLoadedHeader }) => {
 								<span className="px-4 space-x-8">
 									<NavLink 
 										to="/add"
-										activeStyle={{
-											"text-decoration": "underline",
-											"text-decoration-color": "#818CF8"
-										}}
+										className="-m-2 p-2 space-x-2 rounded-md hover:bg-indigo-300 transition ease-in-out duration-150"
 									>
 										Add
 									</NavLink>
 
 									<NavLink 
 										to='/categories'
-										activeStyle={{
-											"text-decoration": "underline",
-											"text-decoration-color": "#818CF8"
-										}}
+										className="-m-2 p-2 space-x-2 rounded-md hover:bg-indigo-300 transition ease-in-out duration-150"
 									>
 										Categories
 									</NavLink>
 
 									<NavLink 
 										to='/random'
-										activeStyle={{
-											"text-decoration": "underline",
-											"text-decoration-color": "#818CF8"
-										}}
+										className="-m-2 p-2 space-x-2 rounded-md hover:bg-indigo-300 transition ease-in-out duration-150"
 									>
 										Random
 									</NavLink>
 
 								</span>
 							</div>	
-							<div className="px-4 items-left">
-								<a href='/' onClick={logOut}>Logout</a>
+							<div className="mr-1 px-4 items-left -m-2 p-2 space-x-2 rounded-md hover:bg-indigo-300 transition ease-in-out duration-150">
+								<a href='/' onClick={logOut}>Log Out</a>
 							</div>
 						</header>					
 					) : (
@@ -95,12 +83,12 @@ const Header = ({ setLoadedHeader }) => {
 									<Link to='/'>TRICK APP</Link>
 								</span>
 							</div>
-							<div className="px-4 items-left space-x-6">	
-								<span>
+							<div className=" items-left ">	
+								<span className="-m-2 mr-6 p-2 space-x-2 rounded-md hover:bg-indigo-300 transition ease-in-out duration-150">
 									<Link to='/register'>Register</Link>
 								</span>
-								<span>	
-									<Link to='/login'>Login</Link>
+								<span className="mr-1 px-4 -m-2 p-2 space-x-2 rounded-md hover:bg-indigo-300 transition ease-in-out duration-150">	
+									<Link to='/login'>Log In</Link>
 								</span>
 							</div>	
 						</header>

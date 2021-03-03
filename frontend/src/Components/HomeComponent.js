@@ -5,6 +5,9 @@ import { Link, Route } from "react-router-dom";
 import LearnedComponent from './LearnedComponent'
 
 function HomeComponent(props) {
+	const capitaliseStyle = {
+		textTransform: 'capitalize'
+	}
 
 	return (
 		<div className="">
@@ -35,19 +38,19 @@ function HomeComponent(props) {
 												<Link 
 													to={`/categories/${trick.cats}/${trick.id}`}
 												>
-													<span className="-m-3 p-3 space-x-3 rounded-md hover:bg-indigo-400 transition ease-in-out duration-150">{trick.name}</span>
+													<span style={capitaliseStyle} className="-m-3 p-3 space-x-3 rounded-md hover:bg-indigo-400 transition ease-in-out duration-150">{trick.name}</span>
 												</Link>                
 											</td>
-											<td className="px-4 py-4 whitespace-no-wrap">
+											<td className="px-4 py-4 whitespace-no-wrap" style={capitaliseStyle}>
 												{trick.cats}                
 											</td>
 											<td className="px-4 py-4 whitespace-no-wrap">
 												 {trick.learned ? 
 												 	<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">	
-												 		learned!
+												 		Learned!
 												 	</span>: 
 												 	<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-200 text-yellow-800">
-														learning
+														Learning
 													</span>
 												}		
 											</td>

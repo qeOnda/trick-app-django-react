@@ -3,10 +3,11 @@ import React, { useState, useRef } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
-import { history, withRouter } from 'react-router-dom';
+import { Redirect, withRouter } from 'react-router-dom';
 
 import AuthService from "../Services/auth.service";
 import axiosInstance from "../Services/axiosApi";
+import NotFound from './NotFound'
 
 
 const required = (value) => {
@@ -51,16 +52,18 @@ const Log = (props) => {
 			axiosInstance.post('token/obtain/', {
 				username: username,
 				password: password
-			}).then(response => {
-				if (response.data) {
-						axiosInstance.defaults.headers['Authorization'] = "JWT " + response.data.access;
-						localStorage.setItem('access_token', JSON.stringify(response.data.access));
-						localStorage.setItem('refresh_token', JSON.stringify(response.data.refresh));
-						props.history.push("/");
-						window.location.reload();	
-					}
+			}).then(response => {			
+				try  {
+					axiosInstance.defaults.headers['Authorization'] = "JWT " + response.data.access;
+					localStorage.setItem('access_token', JSON.stringify(response.data.access));
+					localStorage.setItem('refresh_token', JSON.stringify(response.data.refresh));
+					props.history.push("/");
+					window.location.reload();	
+				} catch (e) {					
+					setMessage("Try again!")	
+				}
 			})
-		}	
+		}
 	};
 
 	return (
@@ -100,14 +103,15 @@ const Log = (props) => {
 							disabled={loading}
 							className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
 						>
-							<span>Login</span>
+							<span>Log In</span>
 						</button>
 					</div>		
 
 					{message && (
-						<div className="form-group">> 
-							<div role="alert">
-								{message}
+						<div className="form-group">
+							<div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+								<strong class="font-bold">Error </strong>
+								<span class="">{message}</span>
 							</div>
 						</div>	
 					)}		
