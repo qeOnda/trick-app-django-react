@@ -5,7 +5,7 @@ Trick App was build using Django as the backend and React for the frontend. It i
   
 The site is live here: URL TO APP  
 
-### Install and run on localhost 
+## Install and run on localhost 
 First clone repo:   
 ```
 $ git clone https://github.com/qeOnda/trick-app-django-react
@@ -24,10 +24,10 @@ $ pipenv shell
 $ pipenv install 
 $ DJANGO_ENV=development python manage.py runserver
 ```
-Now the development server will be running at localhost:8000.
+Now the development server will be running at localhost:8000.  
 
 
-### Useful Resources
+## Useful Resources
 #### Configure React with Django
 https://fractalideas.com/blog/making-react-and-django-play-well-together/  
 #### React router and protected routes  
