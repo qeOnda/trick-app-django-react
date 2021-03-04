@@ -31,7 +31,7 @@ function Random() {
 				{tricks ? (
 					<div className="md:flex bg-white shadow-md rounded p-4 ">
 						<div className="md:w-1/4 text-center md:text-left p-4 h-40">
-								<p>Trick Name: {tricks.name}</p> 
+								<p>Trick Name: <span style={capitaliseStyle}>{tricks.name}</span></p> 
 								<p>Category: <span style={capitaliseStyle}>{tricks.cats}</span></p>								
 						</div>		
 												
