@@ -29,8 +29,8 @@ Now the development server will be running at localhost:8000.
 
 ## Useful Resources
 #### Configure React with Django
-https://fractalideas.com/blog/making-react-and-django-play-well-together/  
+* https://fractalideas.com/blog/making-react-and-django-play-well-together/  
 #### React router and protected routes  
-https://github.com/adamwathan/theming-tailwind-demo  
-https://dev.to/mychal/protected-routes-with-react-function-components-dh  
-https://learnwithparam.com/blog/dynamic-pages-in-react-router/
+* https://github.com/adamwathan/theming-tailwind-demo  
+* https://dev.to/mychal/protected-routes-with-react-function-components-dh  
+* https://learnwithparam.com/blog/dynamic-pages-in-react-router/
