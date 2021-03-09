@@ -3,6 +3,7 @@ import axiosInstance from "../Services/axiosApi";
 import Loading from './Loading'
 import { Link, Route } from "react-router-dom";
 import LearnedComponent from './LearnedComponent'
+import DeleteComponent from './DeleteComponent'
 
 function HomeComponent(props) {
 	const capitaliseStyle = {
@@ -57,7 +58,9 @@ function HomeComponent(props) {
 											<td className="px-4 py-4 whitespace-no-wrap">
 												<LearnedComponent trick={trick}/>
 											</td>
-											
+											<td className="px-4 py-4 whitespace-no-wrap">
+												<DeleteComponent trick={trick}/>
+											</td>
 										</tr>
 									))}
 								</tbody>
