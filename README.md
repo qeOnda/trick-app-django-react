@@ -37,3 +37,5 @@ Now the development server will be running at localhost:8000.
 #### JWT authentication 
 * https://medium.com/swlh/authentication-using-jwt-and-refresh-token-part-2-a86150d25152
 * https://hackernoon.com/110percent-complete-jwt-authentication-with-django-and-react-2020-iejq34ta
+#### Deploy to GCP
+* https://codeburst.io/beginners-guide-to-deploying-a-django-postgresql-project-on-google-cloud-s-flexible-app-engine-e3357b601b91
