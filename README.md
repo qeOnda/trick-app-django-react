@@ -3,7 +3,7 @@ Trick App is a "to-do" list for learning skateboard tricks. You enter a trick na
 
 Trick App was build using Django as the backend and React for the frontend. It is a revamped, full-stack version of an application I made earlier in my programming journey. You can find the original project live [here](https://sk8pp.herokuapp.com/) and the repo [here](https://github.com/qeOnda/trick-app-django).  
   
-The site is live here: URL TO APP  
+The site was deployed using Google App Engine and can be viewed here: https://trick-app-306710.nw.r.appspot.com/
 
 ## Install and run on localhost 
 First clone repo:   
@@ -33,4 +33,7 @@ Now the development server will be running at localhost:8000.
 #### React router and protected routes  
 * https://github.com/adamwathan/theming-tailwind-demo  
 * https://dev.to/mychal/protected-routes-with-react-function-components-dh  
-* https://learnwithparam.com/blog/dynamic-pages-in-react-router/
+* https://learnwithparam.com/blog/dynamic-pages-in-react-router/ 
+#### JWT authentication 
+* https://medium.com/swlh/authentication-using-jwt-and-refresh-token-part-2-a86150d25152
+* https://hackernoon.com/110percent-complete-jwt-authentication-with-django-and-react-2020-iejq34ta
