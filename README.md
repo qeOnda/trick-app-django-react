@@ -13,7 +13,7 @@ $ git clone https://github.com/qeOnda/trick-app-django-react
 Then install React dependencies and start frontend development server: 
 ```
 $ cd trick-app-django-react
-$ cd frontend
+$ cd backend/frontend
 $ yarn install 
 $ yarn start
 ```
