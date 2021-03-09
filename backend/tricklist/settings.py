@@ -3,13 +3,12 @@ import json
 from pathlib import Path
 from django.core.exceptions import ImproperlyConfigured
 from datetime import timedelta
-    
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 BACKEND_DIR = BASE_DIR  # rename variable for clarity
-FRONTEND_DIR = os.path.abspath(
-    os.path.join(BACKEND_DIR, '..', 'frontend'))
+FRONTEND_DIR = os.path.join(BACKEND_DIR, 'frontend')
 
 with open(os.path.join(BASE_DIR, 'secrets.json')) as secrets_file:
     secrets = json.load(secrets_file)
@@ -27,9 +26,16 @@ def get_secret(setting, secrets=secrets):
 SECRET_KEY = get_secret('PASSWORD')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DJANGO_ENV') == 'development'
 
-ALLOWED_HOSTS = ['localhost']
+DEBUG = os.environ['DEBUG'] == 'True'
+# DEBUG = os.environ.get('DJANGO_ENV') == 'development'
+
+
+ALLOWED_HOSTS = [ 
+    'trick-app-306710.nw.r.appspot.com',
+    '127.0.0.1',
+    'localhost',    
+]
 
 
 # Application definition
@@ -45,13 +51,13 @@ INSTALLED_APPS = [
 
     'api.apps.ApiConfig',
     'rest_framework',
-    'rest_framework.authtoken',
+    'rest_framework.authtoken', 
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',    
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -80,25 +86,29 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'tricklist.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'tricks',
+#         'USER': 'admin',
+#         'PASSWORD': get_secret('PASSWORD'),
+#         'HOST': 'localhost',
+#         'PORT': '',
+#     }
+# }
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'tricks',
-        'USER': 'admin',
-        'PASSWORD': get_secret('PASSWORD'),
-        'HOST': 'localhost',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.postgresql',
+        'HOST': os.environ['DB_HOST'],
+        'PORT': os.environ['DB_PORT'],
+        'NAME': os.environ['DB_NAME'],
+        'USER': os.environ['DB_USER'],
+        'PASSWORD': os.environ['DB_PASSWORD']
     }
-}
+} 
 
 
-
-# Password validation
-# https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -116,9 +126,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/3.1/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -130,27 +137,28 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+# STATIC_URL = get_secret('STATIC_URL')
+# STATIC_URL = os.environ['STATIC_URL']
+
 
 STATICFILES_DIRS = [os.path.join(FRONTEND_DIR, 'build', 'static')]
 
 STATICFILES_STORAGE = (
     'whitenoise.storage.CompressedManifestStaticFilesStorage')
 
-STATIC_ROOT = os.path.join(BACKEND_DIR, 'static')
+STATIC_ROOT = os.path.join(BACKEND_DIR, 'static-bucket')
 
 WHITENOISE_ROOT = os.path.join(FRONTEND_DIR, 'build', 'root')
 
 
-REST_FRAMEWORK = {
+REST_FRAMEWORK = {    
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     ),
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    'DEFAULT_AUTHENTICATION_CLASSES': (        
+        'rest_framework_simplejwt.authentication.JWTAuthentication',                
     ),  
 }
 

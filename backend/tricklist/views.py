@@ -4,6 +4,8 @@ from django.conf import settings
 from django.template import engines
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import TemplateView
+from django.views import View
+
 
 @csrf_exempt
 def catchall_dev(request, upstream='http://localhost:3000'):
