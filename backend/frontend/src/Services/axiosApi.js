@@ -1,8 +1,10 @@
 import axios from 'axios'
 
+// const baseURL = 'http://localhost:8000/api/'
+const baseURL = 'https://trick-app-306710.nw.r.appspot.com/api/'	
+
 const axiosInstance = axios.create({
-	// baseURL: 'http://localhost:8000/api/',
-	baseURL: 'https://trick-app-306710.nw.r.appspot.com/api/',	
+	baseURL: baseURL,
 	timeout: 5000,
 	headers: {
 		'Authorization': "JWT " + localStorage.getItem('access_token'),
@@ -11,32 +13,61 @@ const axiosInstance = axios.create({
 	}
 });
 axiosInstance.interceptors.response.use(
-	(response) => response,
-	(error) => {
-		const originalRequest = error.config;
+    response => response,
+    error => {
+        const originalRequest = error.config;
 
-		if (error.response.status === 401 && error.response.statusText === "Unauthorized") {
-			const refresh_token = JSON.parse(localStorage.getItem('refresh_token'));
+        // Prevent infinite loops
+        if (error.response.status === 401 && originalRequest.url === baseURL+'token/refresh/') {
+            window.location.href = '/login/';
+            return Promise.reject(error);
+        }
 
-			return axiosInstance
-				.post('token/refresh/', {refresh: refresh_token})
-				.then((response) => {
-					localStorage.setItem('access_token', JSON.stringify(response.data.access));
-					localStorage.setItem('refresh_token', JSON.stringify(response.data.refresh));
+        if (error.response.data.code === "token_not_valid" &&
+            error.response.status === 401 && 
+            error.response.statusText === "Unauthorized") 
+            {
+                const refreshToken = JSON.parse(localStorage.getItem('refresh_token'));
 
-					axiosInstance.defaults.headers['Authorization'] = "JWT " + response.data.access;
-					originalRequest.headers['Authorization'] = "JWT " + response.data.access;
+                if (refreshToken){
+                    const tokenParts = JSON.parse(atob(refreshToken.split('.')[1]));
 
-					return axiosInstance(originalRequest);
-				})
-				.catch(err => {
-					console.log(err)
-				})
-		}
-		return Promise.reject(error)
-	}	
-)
+                    // exp date in token is expressed in seconds, while now() returns milliseconds:
+                    const now = Math.ceil(Date.now() / 1000);
+                    console.log(tokenParts.exp);
 
+                    if (tokenParts.exp > now) {
+                        return axiosInstance
+                        .post('/token/refresh/', {refresh: refreshToken})
+                        .then((response) => {            
+                            localStorage.setItem('access_token', JSON.stringify(response.data.access));
+							localStorage.setItem('refresh_token', JSON.stringify(response.data.refresh));
+            
+                            axiosInstance.defaults.headers['Authorization'] = "JWT " + response.data.access;
+                            originalRequest.headers['Authorization'] = "JWT " + response.data.access;
+            
+                            return axiosInstance(originalRequest);
+                        })
+                        .catch(err => {
+                            console.log(err)
+                        });
+                    }else{
+                        console.log("Refresh token is expired", tokenParts.exp, now);
+                        window.location.href = '/login/';
+                    }
+                }else{
+                    console.log("Refresh token not available.")
+                    window.location.href = '/login/';
+                }
+        }
+      
+     
+      // specific error handling done elsewhere
+      return Promise.reject(error);
+  }
+);
 
 
 export default axiosInstance	
+
+

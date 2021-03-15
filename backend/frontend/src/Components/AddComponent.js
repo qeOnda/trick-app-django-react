@@ -61,7 +61,7 @@ const AddComponent = (props) => {
 	}
 
 	return (
-		<div className="w-full flex justify-center">
+		<div className="w-full flex justify-center bg-gray-100 ">
 			<Form onSubmit={handleSubmit} ref={form} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
 				<div className="mb-8">	
 					<div className="form-group  mb-4">

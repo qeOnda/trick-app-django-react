@@ -39,8 +39,3 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         token['name'] = user.username
         return token
 		
-
-# class CategorySerializer(serializers.ModelSerializer):
-# 	class Meta:
-# 		model = Category
-# 		fields = '__all__'
