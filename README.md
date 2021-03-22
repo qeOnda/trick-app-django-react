@@ -1,7 +1,7 @@
 # trick-app-django-react 
 Trick App is a "to-do" list for learning skateboard tricks. You enter a trick name, type of trick and a tutorial video URL from YouTube into the app and once you learn the trick you can mark it as **completed**.  
 
-Trick App was built using Django as the backend and React for the frontend. It is a revamped, full-stack version of an application I made earlier in my programming journey. You can find the original project live [here](https://sk8pp.herokuapp.com/) and the repo [here](https://github.com/qeOnda/trick-app-django).  
+Trick App was built using Django as the backend and React for the frontend. It is a revamped, full-stack version of an application I made earlier in my programming journey. You can find the original project live [here](https://sk8pp.herokuapp.com/home/) and the repo [here](https://github.com/qeOnda/trick-app-django).  
   
 The site was deployed using Google App Engine and can be viewed here: https://trick-app-306710.nw.r.appspot.com/
 
